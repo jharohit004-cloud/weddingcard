@@ -1,11 +1,11 @@
 /* ==========================================================================
    Advanced Minimalist Mobile-First Wedding Invitation CSS
-   Featuring Aesthetic Side-by-Side Couple Cards & Smooth Fade-In Transitions
+   Fixed Arch Portrait & Responsive Mobile Proportions
    ========================================================================== */
 
 :root {
     --bg-color: #FAF8F5;
-    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-bg: rgba(255, 255, 255, 0.88);
     --card-border: rgba(212, 175, 55, 0.35);
     
     --text-primary: #2C2A29;
@@ -431,7 +431,7 @@ body.lang-hi textarea {
     position: relative;
     border-radius: 18px;
     padding: 2px;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.5), rgba(255, 255, 255, 0.2), rgba(128, 0, 32, 0.3));
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.4), rgba(255, 255, 255, 0.3), rgba(128, 0, 32, 0.25));
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
     transition: var(--transition);
 }
@@ -453,14 +453,16 @@ body.lang-hi textarea {
     backdrop-filter: blur(14px);
 }
 
+/* FIXED PROPORTIONS FOR ARCH PORTRAIT */
 .aesthetic-arch-portrait {
     position: relative;
-    width: 80px;
-    height: 105px;
+    width: 90px;
+    height: 120px;
     margin: 0 auto 18px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .arch-svg-art {
@@ -469,6 +471,7 @@ body.lang-hi textarea {
     left: 0;
     width: 100%;
     height: 100%;
+    display: block;
 }
 
 .aesthetic-initial {
@@ -477,6 +480,7 @@ body.lang-hi textarea {
     color: var(--crimson);
     font-weight: 600;
     z-index: 2;
+    margin-top: 8px;
 }
 
 .aesthetic-couple-card h3 {
@@ -505,7 +509,7 @@ body.lang-hi textarea {
 .aesthetic-desc {
     font-size: 0.88rem;
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 /* VERTICAL TIMELINE STYLES */
@@ -930,37 +934,43 @@ body.lang-hi textarea {
         font-size: 1.8rem;
     }
 
-    /* Mobile Side-by-Side Retention */
+    /* Mobile Side-by-Side Retention & Proportions */
     .couple-side-by-side-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 12px;
+        gap: 10px;
     }
 
     .card-inner-frame {
-        padding: 22px 10px;
+        padding: 18px 8px;
     }
 
     .aesthetic-arch-portrait {
-        width: 60px;
-        height: 80px;
-        margin-bottom: 12px;
+        width: 70px;
+        height: 90px;
+        margin-bottom: 10px;
     }
 
     .aesthetic-initial {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
+        margin-top: 4px;
     }
 
     .aesthetic-couple-card h3 {
-        font-size: 1.15rem;
+        font-size: 1.1rem;
     }
 
     .aesthetic-role {
-        font-size: 0.8rem;
+        font-size: 0.78rem;
+        margin-bottom: 6px;
+    }
+
+    .aesthetic-ornament {
+        margin-bottom: 8px;
     }
 
     .aesthetic-desc {
-        font-size: 0.78rem;
-        line-height: 1.45;
+        font-size: 0.75rem;
+        line-height: 1.4;
     }
 
     .rsvp-grid {
