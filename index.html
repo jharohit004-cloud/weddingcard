@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
 
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -175,10 +175,10 @@
         </div>
     </section>
 
-    <!-- The Couple Section -->
+    <!-- The Couple Section (Aesthetic Side-by-Side Cards with Smooth Scroll Fade-In) -->
     <section class="section couple-section" id="couple">
         <div class="container">
-            <div class="section-header animate-on-scroll fade-up">
+            <div class="section-header animate-on-scroll fade-in-up">
                 <span class="sub-heading" 
                       data-en="The Couple" 
                       data-hi="॥ वर-वधू परिचय ॥">
@@ -191,37 +191,50 @@
                 <div class="minimal-divider"></div>
             </div>
 
-            <div class="couple-grid">
+            <!-- Aesthetic Side-by-Side Flex Grid -->
+            <div class="couple-side-by-side-grid">
                 <!-- Bride Card -->
-                <div class="glass-card couple-card animate-on-scroll slide-right">
-                    <div class="avatar-frame">
-                        <span class="initial">K</span>
+                <div class="aesthetic-couple-card animate-on-scroll fade-in-up delay-1">
+                    <div class="card-glass-layer"></div>
+                    <div class="card-inner-frame">
+                        <div class="aesthetic-arch-portrait">
+                            <svg viewBox="0 0 100 120" class="arch-svg-art">
+                                <path d="M 10 120 L 10 45 A 40 45 0 0 1 90 45 L 90 120 Z" fill="none" stroke="url(#goldGrad)" stroke-width="1"/>
+                                <path d="M 16 120 L 16 48 A 34 38 0 0 1 84 48 L 84 120 Z" fill="none" stroke="url(#goldGrad)" stroke-width="0.5" stroke-dasharray="2 2"/>
+                            </svg>
+                            <span class="aesthetic-initial">K</span>
+                        </div>
+                        <h3 data-en="Kshama Jha" data-hi="सौभाग्यकांक्षी क्षमा झा">Kshama Jha</h3>
+                        <p class="aesthetic-role" data-en="The Bride" data-hi="झा कुल की संस्कारी कन्या (वधू)">The Bride</p>
+                        <div class="aesthetic-ornament">❖</div>
+                        <p class="aesthetic-desc" 
+                           data-en="Graceful, intelligent, and radiant. Daughter of the Jha family, bringing warmth and joy to every life she touches." 
+                           data-hi="संस्कारित, सौम्य एवं विदुषी। अपने आचार-विचार और संस्कृति से परिपूर्ण झा परिवार की लाडली पुत्री।">
+                            Graceful, intelligent, and radiant. Daughter of the Jha family, bringing warmth and joy to every life she touches.
+                        </p>
                     </div>
-                    <h3 data-en="Kshama Jha" data-hi="सौभाग्यकांक्षी क्षमा झा">Kshama Jha</h3>
-                    <p class="role" data-en="The Bride" data-hi="झा कुल की संस्कारी कन्या (वधू)">The Bride</p>
-                    <p class="desc" 
-                       data-en="Graceful, intelligent, and radiant. Daughter of the Jha family, bringing warmth and joy to every life she touches." 
-                       data-hi="संस्कारित, सौम्य एवं विदुषी। अपने आचार-विचार और संस्कृति से परिपूर्ण झा परिवार की लाडली पुत्री।">
-                        Graceful, intelligent, and radiant. Daughter of the Jha family, bringing warmth and joy to every life she touches.
-                    </p>
-                </div>
-
-                <div class="center-symbol animate-on-scroll scale-up">
-                    <span class="knot-symbol">❖</span>
                 </div>
 
                 <!-- Groom Card -->
-                <div class="glass-card couple-card animate-on-scroll slide-left">
-                    <div class="avatar-frame">
-                        <span class="initial">A</span>
+                <div class="aesthetic-couple-card animate-on-scroll fade-in-up delay-2">
+                    <div class="card-glass-layer"></div>
+                    <div class="card-inner-frame">
+                        <div class="aesthetic-arch-portrait">
+                            <svg viewBox="0 0 100 120" class="arch-svg-art">
+                                <path d="M 10 120 L 10 45 A 40 45 0 0 1 90 45 L 90 120 Z" fill="none" stroke="url(#goldGrad)" stroke-width="1"/>
+                                <path d="M 16 120 L 16 48 A 34 38 0 0 1 84 48 L 84 120 Z" fill="none" stroke="url(#goldGrad)" stroke-width="0.5" stroke-dasharray="2 2"/>
+                            </svg>
+                            <span class="aesthetic-initial">A</span>
+                        </div>
+                        <h3 data-en="Aditya Awasthi" data-hi="आयुष्मान आदित्य अवस्थी">Aditya Awasthi</h3>
+                        <p class="aesthetic-role" data-en="The Groom" data-hi="अवस्थी कुल का सुयोग्य पुत्र (वर)">The Groom</p>
+                        <div class="aesthetic-ornament">❖</div>
+                        <p class="aesthetic-desc" 
+                           data-en="Noble, steadfast, and charming. Son of the Awasthi family, ready to embark on life's finest journey." 
+                           data-hi="तेजस्वी, निष्ठावान एवं सदाचारी। अपने संस्कारों और श्रेष्ठ ज्ञान से सर्वजनप्रिय अवस्थी परिवार के कुलदीप।">
+                            Noble, steadfast, and charming. Son of the Awasthi family, ready to embark on life's finest journey.
+                        </p>
                     </div>
-                    <h3 data-en="Aditya Awasthi" data-hi="आयुष्मान आदित्य अवस्थी">Aditya Awasthi</h3>
-                    <p class="role" data-en="The Groom" data-hi="अवस्थी कुल का सुयोग्य पुत्र (वर)">The Groom</p>
-                    <p class="desc" 
-                       data-en="Noble, steadfast, and charming. Son of the Awasthi family, ready to embark on life's finest journey." 
-                       data-hi="तेजस्वी, निष्ठावान एवं सदाचारी। अपने संस्कारों और श्रेष्ठ ज्ञान से सर्वजनप्रिय अवस्थी परिवार के कुलदीप।">
-                        Noble, steadfast, and charming. Son of the Awasthi family, ready to embark on life's finest journey.
-                    </p>
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('is-desktop');
     }
 
-    // 2. Persistent Touch & Particle Sparkle Trail Engine (Long Lifespan Sparkles)
+    // 2. Persistent Touch & Particle Sparkle Trail Engine
     const canvas = document.getElementById('sparkle-canvas');
     const ctx = canvas.getContext('2d');
     let sparkles = [];
@@ -29,12 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
         constructor(x, y) {
             this.x = x;
             this.y = y;
-            // Larger particle sizes on mobile touch
             this.size = Math.random() * 3.5 + 1.2;
             this.speedX = (Math.random() - 0.5) * 1.8;
             this.speedY = (Math.random() - 0.5) * 1.8 - 0.4;
             
-            // Rich Metallic Gold & Diamond Sparkle Color Palette
             const goldTones = [
                 'hsl(43, 74%, 60%)',  // Royal Gold
                 'hsl(48, 89%, 75%)',  // Light Champagne
@@ -43,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ];
             this.color = goldTones[Math.floor(Math.random() * goldTones.length)];
             this.opacity = 1;
-            // Slow decay rate (0.005 - 0.01) so sparkles stay on screen much longer!
             this.decay = Math.random() * 0.006 + 0.005;
         }
 
@@ -61,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
             
-            // Soft glow aura around particles
             ctx.shadowBlur = 8;
             ctx.shadowColor = this.color;
             ctx.restore();
@@ -79,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (x && y) {
-            // Burst more sparkles per touch drag
             const count = isMobile ? 3 : 2;
             for (let i = 0; i < count; i++) {
                 sparkles.push(new Sparkle(x, y));
@@ -105,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     animateSparkles();
 
-    // 3. Soothing Ambient Sound Synthesizer (Santoor/Flute Pentatonic Scale)
+    // 3. Soothing Ambient Sound Synthesizer
     let audioCtx = null;
     let isPlaying = false;
     let synthInterval = null;
@@ -165,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     musicBtn.addEventListener('click', toggleAudio);
 
-    // 4. Language Switcher with Cultural Hindu Invitation Wording
+    // 4. Language Switcher
     let currentLang = 'en';
     const langBtn = document.getElementById('lang-toggle');
     const langLabel = document.getElementById('lang-label');
@@ -220,11 +215,11 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // 6. High-End Scroll Animations
+    // 6. High-End Scroll Fade-In Observer
     const observerOptions = {
         root: null,
-        rootMargin: '0px',
-        threshold: isMobile ? 0.08 : 0.2
+        rootMargin: '0px 0px -50px 0px',
+        threshold: isMobile ? 0.05 : 0.15
     };
 
     const observer = new IntersectionObserver((entries, obs) => {
