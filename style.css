@@ -1,6 +1,6 @@
 /* ==========================================================================
    Advanced Minimalist Mobile-First Wedding Invitation CSS
-   Fixed Arch Portrait & Responsive Mobile Proportions
+   Featuring Vector Portrait Illustration Side-by-Side Couple Cards
    ========================================================================== */
 
 :root {
@@ -59,7 +59,7 @@ body.lang-hi, body.lang-hi h1, body.lang-hi h2, body.lang-hi h3, body.lang-hi h4
 body.lang-hi .invitation-lead,
 body.lang-hi .welcome-text,
 body.lang-hi .desc,
-body.lang-hi .aesthetic-desc,
+body.lang-hi .vector-desc,
 body.lang-hi .event-desc,
 body.lang-hi .venue-desc,
 body.lang-hi label,
@@ -419,7 +419,7 @@ body.lang-hi textarea {
     font-size: 0.9rem;
 }
 
-/* AESTHETIC SIDE-BY-SIDE BRIDE & GROOM CARDS */
+/* AESTHETIC SIDE-BY-SIDE BRIDE & GROOM CARDS WITH VECTOR PORTRAIT SVGs */
 .couple-side-by-side-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -427,87 +427,64 @@ body.lang-hi textarea {
     align-items: stretch;
 }
 
-.aesthetic-couple-card {
-    position: relative;
-    border-radius: 18px;
-    padding: 2px;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.4), rgba(255, 255, 255, 0.3), rgba(128, 0, 32, 0.25));
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
-    transition: var(--transition);
-}
-
-.aesthetic-couple-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 16px 35px rgba(212, 175, 55, 0.2);
-}
-
-.card-inner-frame {
+.vector-couple-card {
     background: var(--card-bg);
-    border-radius: 16px;
-    padding: 32px 20px;
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    padding: 35px 24px;
     text-align: center;
-    height: 100%;
+    backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-subtle);
+    transition: var(--transition);
     display: flex;
     flex-direction: column;
     align-items: center;
-    backdrop-filter: blur(14px);
 }
 
-/* FIXED PROPORTIONS FOR ARCH PORTRAIT */
-.aesthetic-arch-portrait {
-    position: relative;
-    width: 90px;
-    height: 120px;
+.vector-couple-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-gold);
+    border-color: rgba(212, 175, 55, 0.6);
+}
+
+.vector-avatar-ring {
+    width: 95px;
+    height: 95px;
     margin: 0 auto 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    position: relative;
 }
 
-.arch-svg-art {
-    position: absolute;
-    top: 0;
-    left: 0;
+.couple-vector-svg {
     width: 100%;
     height: 100%;
     display: block;
 }
 
-.aesthetic-initial {
+.vector-couple-card h3 {
     font-family: var(--font-heading);
-    font-size: 2.2rem;
-    color: var(--crimson);
-    font-weight: 600;
-    z-index: 2;
-    margin-top: 8px;
-}
-
-.aesthetic-couple-card h3 {
-    font-family: var(--font-heading);
-    font-size: 1.55rem;
+    font-size: 1.6rem;
     color: var(--text-primary);
     margin-bottom: 4px;
     line-height: 1.2;
 }
 
-.aesthetic-role {
+.vector-role {
     font-family: var(--font-heading);
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     font-style: italic;
     color: var(--gold-dark);
     margin-bottom: 10px;
 }
 
-.aesthetic-ornament {
+.vector-ornament {
     color: var(--crimson);
     font-size: 0.8rem;
     margin-bottom: 12px;
     opacity: 0.8;
 }
 
-.aesthetic-desc {
-    font-size: 0.88rem;
+.vector-desc {
+    font-size: 0.9rem;
     color: var(--text-secondary);
     line-height: 1.65;
 }
@@ -880,7 +857,7 @@ body.lang-hi textarea {
     transform: translateY(-3px);
 }
 
-/* HIGH-END SCROLL & TOUCH ANIMATIONS */
+/* HIGH-END SCROLL ANIMATIONS */
 .animate-on-scroll {
     opacity: 0;
     transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease;
@@ -892,7 +869,6 @@ body.lang-hi textarea {
 .slide-left { transform: translateX(45px); }
 .scale-up { transform: scale(0.82); }
 
-/* Fade-In Up Staggered Class for Aesthetic Cards */
 .fade-in-up {
     transform: translateY(35px);
 }
@@ -934,43 +910,38 @@ body.lang-hi textarea {
         font-size: 1.8rem;
     }
 
-    /* Mobile Side-by-Side Retention & Proportions */
+    /* Mobile Side-by-Side Grid */
     .couple-side-by-side-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        gap: 12px;
     }
 
-    .card-inner-frame {
-        padding: 18px 8px;
+    .vector-couple-card {
+        padding: 22px 10px;
     }
 
-    .aesthetic-arch-portrait {
+    .vector-avatar-ring {
         width: 70px;
-        height: 90px;
-        margin-bottom: 10px;
+        height: 70px;
+        margin-bottom: 12px;
     }
 
-    .aesthetic-initial {
-        font-size: 1.6rem;
-        margin-top: 4px;
+    .vector-couple-card h3 {
+        font-size: 1.12rem;
     }
 
-    .aesthetic-couple-card h3 {
-        font-size: 1.1rem;
-    }
-
-    .aesthetic-role {
+    .vector-role {
         font-size: 0.78rem;
         margin-bottom: 6px;
     }
 
-    .aesthetic-ornament {
+    .vector-ornament {
         margin-bottom: 8px;
     }
 
-    .aesthetic-desc {
-        font-size: 0.75rem;
-        line-height: 1.4;
+    .vector-desc {
+        font-size: 0.76rem;
+        line-height: 1.45;
     }
 
     .rsvp-grid {
