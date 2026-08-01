@@ -1,30 +1,30 @@
 /* ==========================================================================
-   Advanced Minimalist Wedding Invitation CSS
-   With Vertical Timeline & Fully Responsive Mobile Architecture
+   Advanced Minimalist Mobile-First Wedding Invitation CSS
+   Featuring Long Persistent Sparkle Touch Physics & High-End Mobile Animations
    ========================================================================== */
 
 :root {
     --bg-color: #FAF8F5;
-    --card-bg: rgba(255, 255, 255, 0.75);
-    --card-border: rgba(197, 160, 89, 0.35);
+    --card-bg: rgba(255, 255, 255, 0.82);
+    --card-border: rgba(197, 160, 89, 0.4);
     
     --text-primary: #2C2A29;
     --text-secondary: #5A5755;
     
-    --gold-primary: #C5A059;
-    --gold-light: #EAD096;
-    --gold-dark: #916F2E;
-    --crimson: #6B1D2F;
+    --gold-primary: #D4AF37;
+    --gold-light: #F3E5AB;
+    --gold-dark: #AA7C11;
+    --crimson: #800020;
     
     --white: #FFFFFF;
-    --shadow-subtle: 0 12px 35px rgba(0, 0, 0, 0.04);
-    --shadow-gold: 0 10px 25px rgba(197, 160, 89, 0.18);
+    --shadow-subtle: 0 15px 35px rgba(0, 0, 0, 0.05);
+    --shadow-gold: 0 12px 30px rgba(212, 175, 55, 0.25);
     
     --font-heading: 'Cormorant Garamond', Georgia, serif;
     --font-body: 'Montserrat', sans-serif;
     --font-hindi: 'Rozha One', 'Yatra One', serif;
 
-    --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Reset */
@@ -32,11 +32,13 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    height: 100%;
 }
 
 body {
@@ -71,7 +73,7 @@ body.lang-hi textarea {
     position: absolute;
     width: 450px;
     height: 450px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="%23C5A059" stroke-width="0.35" stroke-opacity="0.25"><circle cx="50" cy="50" r="48"/><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="20"/><circle cx="50" cy="50" r="10"/><path d="M50 0 L50 100 M0 50 L100 50 M15 15 L85 85 M15 85 L85 15"/><path d="M50 10 Q 55 25 50 40 Q 45 25 50 10 Z M50 60 Q 55 75 50 90 Q 45 75 50 60 Z M10 50 Q 25 55 40 50 Q 25 45 10 50 Z M60 50 Q 75 55 90 50 Q 75 45 60 50 Z"/></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none" stroke="%23D4AF37" stroke-width="0.35" stroke-opacity="0.3"><circle cx="50" cy="50" r="48"/><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="20"/><circle cx="50" cy="50" r="10"/><path d="M50 0 L50 100 M0 50 L100 50 M15 15 L85 85 M15 85 L85 15"/><path d="M50 10 Q 55 25 50 40 Q 45 25 50 10 Z M50 60 Q 55 75 50 90 Q 45 75 50 60 Z M10 50 Q 25 55 40 50 Q 25 45 10 50 Z M60 50 Q 75 55 90 50 Q 75 45 60 50 Z"/></svg>');
     background-repeat: no-repeat;
     background-size: contain;
     pointer-events: none;
@@ -86,10 +88,10 @@ body.lang-hi textarea {
     transform: translate(-50%, -50%);
     width: 600px;
     height: 600px;
-    opacity: 0.22;
+    opacity: 0.25;
 }
 
-/* Sparkle Canvas */
+/* Sparkle Canvas Overlay */
 #sparkle-canvas {
     position: fixed;
     top: 0;
@@ -100,38 +102,48 @@ body.lang-hi textarea {
     z-index: 9999;
 }
 
-/* Header & Controls */
+/* Top Floating Controls Bar */
 .top-controls {
     position: fixed;
     top: 25px;
-    right: 25px;
+    right: 20px;
     z-index: 1000;
     display: flex;
-    gap: 12px;
+    gap: 10px;
 }
 
 .control-btn {
-    background: rgba(255, 255, 255, 0.88);
+    background: rgba(255, 255, 255, 0.92);
     border: 1px solid var(--gold-primary);
     color: var(--text-primary);
-    padding: 9px 18px;
+    padding: 8px 16px;
     border-radius: 30px;
     font-family: var(--font-body);
-    font-size: 0.82rem;
-    font-weight: 500;
+    font-size: 0.8rem;
+    font-weight: 600;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 8px;
-    box-shadow: var(--shadow-subtle);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    backdrop-filter: blur(12px);
     transition: var(--transition);
 }
 
-.control-btn:hover {
+.control-btn:active, .control-btn:hover {
     background: var(--gold-primary);
     color: var(--white);
-    transform: translateY(-2px);
+    transform: scale(1.04);
+}
+
+.pulse-glow {
+    animation: goldGlowPulse 2.5s infinite;
+}
+
+@keyframes goldGlowPulse {
+    0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6); }
+    70% { box-shadow: 0 0 0 12px rgba(212, 175, 55, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
 }
 
 /* Hero Section */
@@ -151,7 +163,7 @@ body.lang-hi textarea {
     position: absolute;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(234, 208, 150, 0.18) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(243, 229, 171, 0.25) 0%, transparent 70%);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -166,8 +178,8 @@ body.lang-hi textarea {
 }
 
 .sacred-icon-wrapper {
-    width: 42px;
-    height: 42px;
+    width: 45px;
+    height: 45px;
     margin: 0 auto 12px;
     color: var(--crimson);
 }
@@ -225,7 +237,7 @@ body.lang-hi textarea {
 }
 
 .caricature-graphic-wrapper:hover {
-    transform: scale(1.02);
+    transform: scale(1.03);
 }
 
 .caricature-line-art {
@@ -353,16 +365,16 @@ body.lang-hi textarea {
 .glass-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 45px;
     box-shadow: var(--shadow-subtle);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(12px);
     transition: var(--transition);
 }
 
 .glass-card:hover {
     box-shadow: var(--shadow-gold);
-    border-color: rgba(197, 160, 89, 0.5);
+    border-color: rgba(212, 175, 55, 0.6);
 }
 
 /* Welcome Card */
@@ -392,7 +404,7 @@ body.lang-hi textarea {
     justify-content: center;
     align-items: center;
     gap: 25px;
-    border-top: 1px solid rgba(197, 160, 89, 0.2);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
     padding-top: 25px;
 }
 
@@ -418,7 +430,7 @@ body.lang-hi textarea {
     flex: 1;
     text-align: center;
     padding: 40px 25px;
-    border-radius: 100px 100px 12px 12px;
+    border-radius: 100px 100px 16px 16px;
 }
 
 .avatar-frame {
@@ -426,11 +438,11 @@ body.lang-hi textarea {
     height: 120px;
     margin: 0 auto 20px;
     border: 1px solid var(--gold-primary);
-    border-radius: 50px 50px 6px 6px;
+    border-radius: 50px 50px 8px 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #FAF8F5, #EAD096);
+    background: linear-gradient(135deg, #FAF8F5, #F3E5AB);
 }
 
 .initial {
@@ -501,35 +513,36 @@ body.lang-hi textarea {
 .timeline-node {
     position: absolute;
     top: 35px;
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     background: var(--bg-color);
-    border: 1px solid var(--gold-primary);
+    border: 1.5px solid var(--gold-primary);
     color: var(--gold-primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 1.1rem;
     z-index: 3;
-    box-shadow: var(--shadow-subtle);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
 }
 
 .timeline-item:nth-child(odd) .timeline-node {
-    right: -20px;
+    right: -21px;
 }
 
 .timeline-item:nth-child(even) .timeline-node {
-    left: -20px;
+    left: -21px;
 }
 
 .highlight-node .highlight-bg {
     background: var(--gold-primary);
     color: var(--white);
+    border-color: var(--white);
 }
 
 .timeline-content {
-    padding: 30px;
+    padding: 32px;
 }
 
 .event-tag {
@@ -570,7 +583,7 @@ body.lang-hi textarea {
 
 .highlight-event {
     border: 1.5px solid var(--gold-primary);
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 /* Venue Section */
@@ -625,9 +638,9 @@ body.lang-hi textarea {
     box-shadow: var(--shadow-gold);
 }
 
-.primary-btn:hover {
+.primary-btn:active, .primary-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(197, 160, 89, 0.35);
+    box-shadow: 0 12px 28px rgba(212, 175, 55, 0.4);
 }
 
 .full-width {
@@ -657,8 +670,8 @@ body.lang-hi textarea {
 .form-group input, .form-group select, .form-group textarea {
     width: 100%;
     padding: 12px 16px;
-    border: 1px solid rgba(197, 160, 89, 0.4);
-    border-radius: 6px;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.9);
     font-family: var(--font-body);
     font-size: 0.92rem;
@@ -669,7 +682,7 @@ body.lang-hi textarea {
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
     outline: none;
     border-color: var(--gold-primary);
-    box-shadow: 0 0 8px rgba(197, 160, 89, 0.25);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
 .checkbox-group {
@@ -710,9 +723,9 @@ body.lang-hi textarea {
 }
 
 .host-box {
-    background: rgba(234, 208, 150, 0.12);
+    background: rgba(243, 229, 171, 0.2);
     border: 1px dashed var(--gold-primary);
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 25px;
     margin-bottom: 25px;
 }
@@ -763,7 +776,7 @@ body.lang-hi textarea {
 }
 
 .traditional-closing {
-    border-top: 1px solid rgba(197, 160, 89, 0.2);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
     padding-top: 20px;
 }
 
@@ -830,27 +843,27 @@ body.lang-hi textarea {
     transform: translateY(-3px);
 }
 
-/* Scroll Animations */
+/* HIGH-END SCROLL & TOUCH ANIMATIONS */
 .animate-on-scroll {
     opacity: 0;
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+    transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s ease;
     will-change: transform, opacity;
 }
 
-.fade-up { transform: translateY(35px); }
-.slide-right { transform: translateX(-35px); }
-.slide-left { transform: translateX(35px); }
-.scale-up { transform: scale(0.85); }
+.fade-up { transform: translateY(45px); }
+.slide-right { transform: translateX(-45px); }
+.slide-left { transform: translateX(45px); }
+.scale-up { transform: scale(0.82); }
 
 .animate-on-scroll.is-visible {
     opacity: 1;
     transform: translate(0) scale(1);
 }
 
-/* MOBILE ADAPTATION & RESPONSIVENESS */
+/* HIGH-END MOBILE OPTIMIZATIONS & EYE-CATCHING RESPONSIVENESS */
 @media (max-width: 768px) {
     .section {
-        padding: 70px 15px;
+        padding: 65px 16px;
     }
 
     .top-controls {
@@ -859,7 +872,7 @@ body.lang-hi textarea {
     }
 
     .control-btn {
-        padding: 7px 14px;
+        padding: 8px 14px;
         font-size: 0.78rem;
     }
 
@@ -874,10 +887,10 @@ body.lang-hi textarea {
     .couple-grid, .rsvp-grid {
         grid-template-columns: 1fr;
         flex-direction: column;
-        gap: 20px;
+        gap: 22px;
     }
 
-    /* Vertical Timeline Mobile Adjustments */
+    /* Vertical Timeline Mobile Layout */
     .timeline-line {
         left: 20px;
     }
@@ -896,21 +909,26 @@ body.lang-hi textarea {
     .timeline-node {
         left: 0 !important;
         right: auto !important;
-        width: 36px;
-        height: 36px;
-        font-size: 0.85rem;
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
     }
 
     .glass-card {
-        padding: 25px 18px;
+        padding: 28px 20px;
+        border-radius: 14px;
     }
 
     .mandala-bg {
-        width: 250px;
-        height: 250px;
+        width: 260px;
+        height: 260px;
     }
 
     .time-block span {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
+    }
+
+    .caricature-graphic-wrapper {
+        max-width: 260px;
     }
 }

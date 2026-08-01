@@ -1,10 +1,11 @@
 /* ==========================================================================
-   Advanced Minimalist Wedding Invitation JavaScript
+   Advanced Minimalist Mobile-First Wedding Invitation JavaScript
+   Featuring Persistent Long Sparkle Touch Physics & High-End Animations
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. Device Detection
+    // 1. Device Detector
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
     if (isMobile) {
         document.body.classList.add('is-mobile');
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('is-desktop');
     }
 
-    // 2. Minimalist Particle Sparkle Trail
+    // 2. Persistent Touch & Particle Sparkle Trail Engine (Long Lifespan Sparkles)
     const canvas = document.getElementById('sparkle-canvas');
     const ctx = canvas.getContext('2d');
     let sparkles = [];
@@ -28,12 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
         constructor(x, y) {
             this.x = x;
             this.y = y;
-            this.size = Math.random() * 2.5 + 0.8;
-            this.speedX = (Math.random() - 0.5) * 1.2;
-            this.speedY = (Math.random() - 0.5) * 1.2 - 0.3;
-            this.color = `hsl(${Math.random() * 20 + 40}, 60%, ${Math.random() * 20 + 65}%)`; // Soft Gold
+            // Larger particle sizes on mobile touch
+            this.size = Math.random() * 3.5 + 1.2;
+            this.speedX = (Math.random() - 0.5) * 1.8;
+            this.speedY = (Math.random() - 0.5) * 1.8 - 0.4;
+            
+            // Rich Metallic Gold & Diamond Sparkle Color Palette
+            const goldTones = [
+                'hsl(43, 74%, 60%)',  // Royal Gold
+                'hsl(48, 89%, 75%)',  // Light Champagne
+                'hsl(38, 80%, 50%)',  // Deep Amber Gold
+                'hsl(0, 0%, 95%)'     // Diamond White
+            ];
+            this.color = goldTones[Math.floor(Math.random() * goldTones.length)];
             this.opacity = 1;
-            this.decay = Math.random() * 0.02 + 0.012;
+            // Slow decay rate (0.005 - 0.01) so sparkles stay on screen much longer!
+            this.decay = Math.random() * 0.006 + 0.005;
         }
 
         update() {
@@ -49,15 +60,27 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fill();
+            
+            // Soft glow aura around particles
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = this.color;
             ctx.restore();
         }
     }
 
     function addSparkles(e) {
-        const x = e.clientX || (e.touches && e.touches[0].clientX);
-        const y = e.clientY || (e.touches && e.touches[0].clientY);
+        let x, y;
+        if (e.touches && e.touches.length > 0) {
+            x = e.touches[0].clientX;
+            y = e.touches[0].clientY;
+        } else {
+            x = e.clientX;
+            y = e.clientY;
+        }
+
         if (x && y) {
-            const count = isMobile ? 1 : 2;
+            // Burst more sparkles per touch drag
+            const count = isMobile ? 3 : 2;
             for (let i = 0; i < count; i++) {
                 sparkles.push(new Sparkle(x, y));
             }
@@ -65,7 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addEventListener('mousemove', addSparkles);
-    if (isMobile) window.addEventListener('touchmove', addSparkles);
+    window.addEventListener('touchmove', addSparkles, { passive: true });
+    window.addEventListener('touchstart', addSparkles, { passive: true });
 
     function animateSparkles() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -133,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1800);
         } else {
             isPlaying = false;
-            musicBtnText.textContent = 'Ambient Sound';
+            musicBtnText.textContent = 'Ambient Music';
             musicIcon.className = 'fas fa-music';
             clearInterval(synthInterval);
         }
@@ -196,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateCountdown, 1000);
     updateCountdown();
 
-    // 6. Scroll Triggered Animations
+    // 6. High-End Scroll Animations
     const observerOptions = {
         root: null,
         rootMargin: '0px',
