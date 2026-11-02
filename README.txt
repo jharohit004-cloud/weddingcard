@@ -1,19 +1,16 @@
-Wedding invitation — Version 9: mobile-optimized
+Wedding Invitation — clean restart with requested changes only
 
-Upload index.html and wedding-preview.jpg to the GitHub Pages weddingcard root.
-style.css and script.js are included as supplementary originals and aren't
-loaded by the Framer-exported index.html.
+Source: supplied index(20261102-160707).html and accompanying user files.
+The original fonts, font sizes, illustrations, event-card design, and animations are retained.
 
-Only narrow screens (up to 600px) have new design changes:
-- Reduced oversized headings, couple message, countdown and Things-to-know text.
-- Reduced empty space in information cards and between message and RSVP.
-- Scaled the large Google Maps star and RSVP shell to phone proportions.
-- Added a repeating, staggered CSS floating fallback for Framer lanterns.
-- Kept the music button transparent and easy to tap (48px high).
-- Desktop (above 600px) styles and animation left untouched.
-- Retained fixed November 24 2026 IST countdown and WhatsApp Open Graph preview.
+Changes in index.html:
+1. Larger transparent music button; attempts audible autoplay, tries again after first tap if blocked by the browser, and pauses when switching apps or tabs. Music stays off on returning until Play is tapped.
+2. Removed the complete Razorpay Buy Now button stack and added a safeguard against Framer rehydration.
+3. Added Open Graph/Twitter sharing metadata using the supplied wedding-preview.jpg; reduced the blank spacing before the WhatsApp RSVP seashell.
+4. Expanded route link and RSVP touch areas without altering existing font sizes.
 
-Important: if the phone's system Reduced Motion preference is ON, mobile lantern
-movement is disabled intentionally for accessibility. When OFF, lanterns animate.
-
-After updating GitHub Pages, reload without cache on the phone or test ?v=9.
+DEPLOY TO GITHUB PAGES:
+Upload index.html AND wedding-preview.jpg together to the weddingcard root.
+The page's embedded Framer CSS/JS is used; supplementary style.css and script.js are unchanged and are not loaded by this HTML.
+WhatsApp preview is fetched from the live website and may be cached by WhatsApp. Try sharing the updated link with a new ?v=clean1 query after publishing.
+Browser policy may disallow audible autoplay until the visitor interacts with the invitation. It cannot be forced by JavaScript.
