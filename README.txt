@@ -1,16 +1,16 @@
-Wedding invitation – updated November 2, 2026
+Wedding invitation — V6: event route link visibility fix
 
-Open index.html in your browser or upload it to your hosting service.
+Open index.html or replace your deployed index.html with this version.
 
-Changes in index.html:
-- Removed Staff from Things to know in both desktop and phone versions.
-- Increased small event, information, footer, and label text.
-- Rebalanced three information cards, including mobile spacing.
-- Added background song startup and first-interaction fallback, with working music toggle.
+V6 change: increased the space between the two rows of oval event frames,
+including desktop, tablet and phone layouts. This keeps the first row's
+“See the route” buttons visible and clickable instead of under the gold
+leaf artwork extending upward from the second row.
 
-Important: modern browsers usually block audible autoplay until a click/tap.
-The page first tries to play the original Framer MP3 automatically; if blocked,
-there is a tap-to-enable-music prompt, and the first page tap also starts audio.
+All previous V5 modifications are retained: enlarged clickable route/RSVP
+areas, payment-link removal, font and footer spacing, larger music button,
+auto-pause when switching apps, and the existing invitation design.
 
-The supplied style.css and script.js are retained unchanged because the Framer
-index.html does not reference them; its styling and scripts are embedded.
+The Framer page uses its own embedded CSS and JavaScript. style.css and
+script.js are included unchanged for completeness but are not imported by
+this index.html. Original external assets require internet access.
