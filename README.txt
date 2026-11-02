@@ -1,16 +1,19 @@
-Wedding invitation — V6: event route link visibility fix
+Wedding invitation — Version 9: mobile-optimized
 
-Open index.html or replace your deployed index.html with this version.
+Upload index.html and wedding-preview.jpg to the GitHub Pages weddingcard root.
+style.css and script.js are included as supplementary originals and aren't
+loaded by the Framer-exported index.html.
 
-V6 change: increased the space between the two rows of oval event frames,
-including desktop, tablet and phone layouts. This keeps the first row's
-“See the route” buttons visible and clickable instead of under the gold
-leaf artwork extending upward from the second row.
+Only narrow screens (up to 600px) have new design changes:
+- Reduced oversized headings, couple message, countdown and Things-to-know text.
+- Reduced empty space in information cards and between message and RSVP.
+- Scaled the large Google Maps star and RSVP shell to phone proportions.
+- Added a repeating, staggered CSS floating fallback for Framer lanterns.
+- Kept the music button transparent and easy to tap (48px high).
+- Desktop (above 600px) styles and animation left untouched.
+- Retained fixed November 24 2026 IST countdown and WhatsApp Open Graph preview.
 
-All previous V5 modifications are retained: enlarged clickable route/RSVP
-areas, payment-link removal, font and footer spacing, larger music button,
-auto-pause when switching apps, and the existing invitation design.
+Important: if the phone's system Reduced Motion preference is ON, mobile lantern
+movement is disabled intentionally for accessibility. When OFF, lanterns animate.
 
-The Framer page uses its own embedded CSS and JavaScript. style.css and
-script.js are included unchanged for completeness but are not imported by
-this index.html. Original external assets require internet access.
+After updating GitHub Pages, reload without cache on the phone or test ?v=9.
